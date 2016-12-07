@@ -1,7 +1,7 @@
 require 'dm-core'
 require 'dm-migrations'
 
-DataMapper.setup(:default , "sqlite3://#{Dir.pwd}/Users.db")
+DataMapper.setup(:default , "sqlite3://#{Dir.pwd}/Names.db")
 
 class Name
   include DataMapper::Resource
