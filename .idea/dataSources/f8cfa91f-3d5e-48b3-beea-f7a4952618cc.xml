@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Sqlite (Xerial) - Users.db">
+  <database-model serializer="dbm" rdbms="SQLITE" format-version="2.6">
+    <schema id="1">
+      <visible>1</visible>
+    </schema>
+    <table id="2" parent="1" name="names"/>
+    <table id="3" parent="1" name="sqlite_sequence"/>
+    <column id="4" parent="2" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="5" parent="2" name="name">
+      <data-type>VARCHAR(50)(0,-1)|12</data-type>
+    </column>
+    <column id="6" parent="2" name="decade1900">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="7" parent="2" name="decade1910">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="8" parent="2" name="decade1920">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="9" parent="2" name="decade1930">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="10" parent="2" name="decade1940">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="11" parent="2" name="decade1950">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="12" parent="2" name="decade1960">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="13" parent="2" name="decade1970">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="14" parent="2" name="decade1980">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="15" parent="2" name="decade1990">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="16" parent="2" name="decade2000">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <key id="17" parent="2">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="18" parent="3" name="name">
+      <data-type>(0,-1)|12</data-type>
+    </column>
+    <column id="19" parent="3" name="seq">
+      <data-type>(0,-1)|12</data-type>
+    </column>
+  </database-model>
+</dataSource>
