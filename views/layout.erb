@@ -32,14 +32,13 @@
 
       var options = {
         hAxis: {
-          title: 'Decade'
+          title: 'Year'
         },
         vAxis: {
           title: 'Popularity',
           ticks: [1, 100,200,300,400,500,600,700,800,900, 1000],
           direction: '-1'
         },
-        title: 'Name Surfer',
         curveType: 'function',
         legend: { position: 'bottom' }
       };
@@ -49,14 +48,14 @@
       function graph(){
         columnFound = false;
         for (var i = 0; i < data.getNumberOfColumns(); i++)
-          if(data.getColumnLabel(i) == dat[0])
+          if(data.getColumnLabel(i) == arr[0])
             columnFound = true;
 
         if(!columnFound) {
-          data.addColumn('number', dat[0]);
+          data.addColumn('number', arr[0]);
 
           for (var i = 0; i < 11; i++) {
-            data.setCell(i, data.getNumberOfColumns() - 1, parseInt(dat[i + 1]));
+            data.setCell(i, data.getNumberOfColumns() - 1, parseInt(arr[i + 1]));
           }
 
           chart.draw(data, options);
@@ -68,9 +67,16 @@
           let text = $('#input').val();
           $.get("/name", {text: text})
               .done((data) => {
-                dat = data['result'];
-                $('#input').val('');
-                graph();
+                console.log(data['result']);
+                if(Array.isArray(data['result'])) {
+                  arr = data['result'];
+                  $('#input').val('');
+                  graph();
+                  document.getElementById('error').innerHTML = "";
+                }
+                else {
+                  document.getElementById('error').innerHTML = data['result'];
+                }
               });
         });
       });
@@ -80,12 +86,15 @@
 
   </style>
 </head>
-<body class="container">
+<body class="container text-center">
 
-<h1>Name Surfer</h1>
+<h1><strong>Name Surfer</strong></h1>
+<br>
 <input id="input" type="text" placeholder="Name">
+<p id="error"></p>
 
 <%= yield %>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
